@@ -1,4 +1,4 @@
-//ÇÏµå¿ş¾î Á¤º¸ °¡Á®¿À±â c++
+//í•˜ë“œì›¨ì–´ ì •ë³´ ê°€ì ¸ì˜¤ê¸° c++
 /*
 #include <windows.h>
 #include <stdio.h>
@@ -17,29 +17,29 @@ void main()
     printf("Hardware information: \n");
     printf("  OEM ID: %u\n", siSysInfo.dwOemId);
     printf("  Number of processors: %u\n",
-        siSysInfo.dwNumberOfProcessors);                                    //  cpuÀÇ °³¼ö
+        siSysInfo.dwNumberOfProcessors);                                    //  cpuì˜ ê°œìˆ˜
     printf("  Page size: %u\n", siSysInfo.dwPageSize);
 
-    //printf("  Processor type: %u\n", siSysInfo.dwProcessorType);          //´õÀÌ»ó »ç¿ë¾ÈµÊ
+    //printf("  Processor type: %u\n", siSysInfo.dwProcessorType);          //ë”ì´ìƒ ì‚¬ìš©ì•ˆë¨
 
     printf("  Minimum application address: %lx\n",
         siSysInfo.lpMinimumApplicationAddress);
     printf("  Maximum application address: %lx\n",
         siSysInfo.lpMaximumApplicationAddress);
 
-                                                                            //°¢°¢ ÇÁ·Î¼¼½º°¡ »ç¿ëÇÒ ¼ö ÀÖ´Â °¡Àå ÀÛÀº°ª
-                                                                            //: ´ëºÎºĞÀÇ °æ¿ì 0ÁÖ¼ÒºÎÅÍ 64 kb ÇØ´çÇÏ´Â ÁÖ¼Ò °ø°£Àº
-                                                                            //ÇÁ¸® »óÅÂ¸¦ À¯Áö ÇØ¾ß ÇÏ±â ¶§¹®¿¡ ÀÌ°ªÀº 65536 È¤Àº 0x00010000 ÀÌ´Ù
+                                                                            //ê°ê° í”„ë¡œì„¸ìŠ¤ê°€ ì‚¬ìš©í•  ìˆ˜ ìˆëŠ” ê°€ì¥ ì‘ì€ê°’
+                                                                            //: ëŒ€ë¶€ë¶„ì˜ ê²½ìš° 0ì£¼ì†Œë¶€í„° 64 kb í•´ë‹¹í•˜ëŠ” ì£¼ì†Œ ê³µê°„ì€
+                                                                            //í”„ë¦¬ ìƒíƒœë¥¼ ìœ ì§€ í•´ì•¼ í•˜ê¸° ë•Œë¬¸ì— ì´ê°’ì€ 65536 í˜¹ì€ 0x00010000 ì´ë‹¤
 
     printf("  Active processor mask: %u\n",                                 
-        siSysInfo.dwActiveProcessorMask);                                   //»ç¿ë °¡´ÉÇÑ CPU¸¦ °¡¸®Å°´Â ºñÆ®¸¶½ºÅ©(½º·¹µå¸¦ ¼öÇàÇÒ ¼ö ÀÖ´Â CPU)
+        siSysInfo.dwActiveProcessorMask);                                   //ì‚¬ìš© ê°€ëŠ¥í•œ CPUë¥¼ ê°€ë¦¬í‚¤ëŠ” ë¹„íŠ¸ë§ˆìŠ¤í¬(ìŠ¤ë ˆë“œë¥¼ ìˆ˜í–‰í•  ìˆ˜ ìˆëŠ” CPU)
 
 */
 //https://docs.microsoft.com/ko-kr/windows/win32/sysinfo/getting-hardware-information
 
 
 
-//µ¿ÀÛÁßÀÎ ÇÁ·Î¼¼½º ¸®½ºÆ® º¸±â
+//ë™ì‘ì¤‘ì¸ í”„ë¡œì„¸ìŠ¤ ë¦¬ìŠ¤íŠ¸ ë³´ê¸°
 /*
 #define _CRT_SECURE_NO_WARNINGS
 #include <iostream>
@@ -82,7 +82,7 @@ int main() {
 
 
 
-//Æ¯Á¤ Æú´õ ÆÄÀÏ ¸®½ºÆ® º¸±â
+//íŠ¹ì • í´ë” íŒŒì¼ ë¦¬ìŠ¤íŠ¸ ë³´ê¸°
 
 #define _CRT_SECURE_NO_WARNINGS 
 #include <Windows.h>
@@ -95,9 +95,9 @@ FILE* fp;
 void FindFile(wchar_t* path);
 void main()
 {
-    // ÆÄÀÏ¸®½ºÆ®¸¦ ÆÄÀÏ·Î ÀúÀåÇÕ´Ï´Ù.
+    // íŒŒì¼ë¦¬ìŠ¤íŠ¸ë¥¼ íŒŒì¼ë¡œ ì €ì¥í•©ë‹ˆë‹¤.
     fp = _wfopen(L"C:\\test\\filelist.txt", L"w+");
-    // Æ¯Á¤°æ·ÎÁöÁ¤
+    // íŠ¹ì •ê²½ë¡œì§€ì •
     wchar_t path[256] = L"C:\\test\\";
 
     FindFile(path);
@@ -119,9 +119,9 @@ void FindFile(wchar_t* path)
         {
             if (!(fd.dwFileAttributes & FILE_ATTRIBUTE_DIRECTORY))
             {
-                // ÄÜ¼ÖÃ¢¿¡¼­ Ãâ·Â
+                // ì½˜ì†”ì°½ì—ì„œ ì¶œë ¥
                 wprintf(L"%s\n", fd.cFileName);
-                // ÆÄÀÏ·Î ÀúÀå
+                // íŒŒì¼ë¡œ ì €ì¥
                 fwprintf(fp, L"%s\n", fd.cFileName);
             }
             else
@@ -131,7 +131,7 @@ void FindFile(wchar_t* path)
 
                     wchar_t path3[256];
                     wsprintf(path3, L"%s%s\\", path, fd.cFileName);
-                    //Àç±ÍÈ£ÃâÇÕ´Ï´Ù.
+                    //ì¬ê·€í˜¸ì¶œí•©ë‹ˆë‹¤.
                     FindFile(path3);
                 }
             }
@@ -144,7 +144,7 @@ void FindFile(wchar_t* path)
 
 
 
-//³×Æ®¿öÅ© ÁÖ¼Ò È®ÀÎ ÇÏ±â
+//ë„¤íŠ¸ì›Œí¬ ì£¼ì†Œ í™•ì¸ í•˜ê¸°
 
 /*
 
@@ -174,18 +174,18 @@ void ViewLocalHostIPv4()
     char localhostname[MAX_PATH];
     IN_ADDR addr = { 0, };
 
-    if (gethostname(localhostname, MAX_PATH) == SOCKET_ERROR)//È£½ºÆ® ÀÌ¸§ ¾ò¾î¿À±â
+    if (gethostname(localhostname, MAX_PATH) == SOCKET_ERROR)//í˜¸ìŠ¤íŠ¸ ì´ë¦„ ì–»ì–´ì˜¤ê¸°
     {
         return;
     }
-    HOSTENT* ptr = gethostbyname(localhostname);//È£½ºÆ® ¿£Æ®¸® ¾ò¾î¿À±â
+    HOSTENT* ptr = gethostbyname(localhostname);//í˜¸ìŠ¤íŠ¸ ì—”íŠ¸ë¦¬ ì–»ì–´ì˜¤ê¸°
     while (ptr && ptr->h_name)
     {
-        if (ptr->h_addrtype == PF_INET)//IPv4 ÁÖ¼Ò Å¸ÀÔÀÏ ¶§
+        if (ptr->h_addrtype == PF_INET)//IPv4 ì£¼ì†Œ íƒ€ì…ì¼ ë•Œ
         {
             for (int index = 0; ptr->h_addr_list[index]; index++)
             {
-                memcpy(&addr, ptr->h_addr_list[index], ptr->h_length);//¸Ş¸ğ¸® º¹»ç
+                memcpy(&addr, ptr->h_addr_list[index], ptr->h_length);//ë©”ëª¨ë¦¬ ë³µì‚¬
                 printf("%s\n", inet_ntoa(addr));
                 fprintf(fp, "%s\n", inet_ntoa(addr));
             }
