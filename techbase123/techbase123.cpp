@@ -28,9 +28,5 @@ void main()
         siSysInfo.lpMaximumApplicationAddress);
     printf("  Active processor mask: %u\n",
         siSysInfo.dwActiveProcessorMask);
-    // test
-
-    printf("hello");
-    printf("hello");
-    printf("hello");
+    
 }
