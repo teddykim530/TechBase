@@ -1,5 +1,5 @@
 //하드웨어 정보 가져오기 c++
-/*
+
 #include <windows.h>
 #include <stdio.h>
 #pragma comment(lib, "user32.lib")
@@ -34,13 +34,11 @@ void main()
     printf("  Active processor mask: %u\n",                                 
         siSysInfo.dwActiveProcessorMask);                                   //사용 가능한 CPU를 가리키는 비트마스크(스레드를 수행할 수 있는 CPU)
 
-*/
 //https://docs.microsoft.com/ko-kr/windows/win32/sysinfo/getting-hardware-information
 
 
 
 //동작중인 프로세스 리스트 보기
-/*
 #define _CRT_SECURE_NO_WARNINGS
 #include <iostream>
 #include <Windows.h>
@@ -74,7 +72,6 @@ int main() {
     system("pause");
 
 }
-*/
 
 //https://wendys.tistory.com/165
 
@@ -146,8 +143,6 @@ void FindFile(wchar_t* path)
 
 //네트워크 주소 확인 하기
 
-/*
-
 #define _CRT_SECURE_NO_WARNINGS
 #include <WinSock2.h>
 #include <Windows.h>
@@ -193,5 +188,5 @@ void ViewLocalHostIPv4()
         ptr++;
     }
 }
-*/
+
 //https://ehpub.co.kr/2-4-%EB%A1%9C%EC%BB%AC-%ED%98%B8%EC%8A%A4%ED%8A%B8-ip-%EC%A3%BC%EC%86%8C-%EC%96%BB%EC%96%B4%EC%98%A4%EA%B8%B0-tcpip-%EC%86%8C%EC%BC%93-%ED%86%B5%EC%8B%A0-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98/
