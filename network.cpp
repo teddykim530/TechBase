@@ -6,7 +6,8 @@
 #include <stdio.h>
 #pragma warning(disable:4996)
 FILE* fp;
-// #pragma comment(lib,"ws2_32")
+#pragma comment(lib,"ws2_32")
+
 void ViewLocalHostIPv4();
 int main()
 {

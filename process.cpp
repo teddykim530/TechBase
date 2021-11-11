@@ -16,11 +16,12 @@ int main()
     HANDLE processes_snapshot = CreateToolhelp32Snapshot(TH32CS_SNAPPROCESS, 0);
     fp = _wfopen(L"p_list.txt", L"w+");
 
-    if (INVALID_HANDLE_VALUE != processes_snapshot) {
+    if (INVALID_HANDLE_VALUE != processes_snapshot) 
+    {
         BOOL first = Process32First(processes_snapshot, &pe32);
         do {
             if (process_id == pe32.th32ProcessID) {
-                std::wcout << "CreateToolhelp32Snapshot process name : " << pe32.szExeFile << std::endl;
+                std::wcout << "Process name : " << pe32.szExeFile << std::endl;
                 fwprintf(fp, L"%s\n", pe32.szExeFile);
                 break;
             }

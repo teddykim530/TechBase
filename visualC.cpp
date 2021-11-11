@@ -151,11 +151,12 @@ void FindFile(wchar_t* path)
 FILE* fp;
 #pragma comment(lib,"ws2_32")
 void ViewLocalHostIPv4();
+
 int main()
 {
     WSADATA wsadata;
     WSAStartup(MAKEWORD(2, 2), &wsadata);
-    fp = _wfopen(L"C:\\test\\network.txt", L"w+");
+    fp = _wfopen(L"network.txt", L"w+");
 
     ViewLocalHostIPv4();
 

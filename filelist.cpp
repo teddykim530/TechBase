@@ -1,24 +1,43 @@
-#include <stdio.h>
+#include <iostream>
+
 #include <io.h>
-#include <conio.h>
 
-int main()
-{
-    _finddata_t fd;
-    long handle;
-    int result = 1;
-    handle = _findfirst(".\\*.*", &fd);  //현재 폴더 내 모든 파일을 찾는다.
+#include <string>
 
-    if (handle == -1)
-    {
-        printf("There were no files.\n");
-    }
+using namespace std;
 
-    while (result != -1)
-    {
-        printf("File: %s\n", fd.name);
-        result = _findnext(handle, &fd);
-    }
 
-    _findclose(handle);
+
+int main(){
+
+
+
+	string path = "C:\\Users\\JYP\\Desktop\\p\\resource\\spam\\*.*";
+
+
+
+	struct _finddata_t fd;
+
+	intptr_t handle;
+
+	if ((handle = _findfirst(path.c_str(), &fd)) == -1L)
+
+		cout << "No file in directory!" << endl;
+
+	do
+
+	{
+
+		cout << fd.name << endl;
+
+	} while (_findnext(handle, &fd) == 0);
+
+	_findclose(handle);
+
+
+
 }
+
+
+
+출처: https://nauco.tistory.com/5 [UNDERSTANDING]
