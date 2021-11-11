@@ -54,7 +54,7 @@ int main() {
     pe32.dwSize = sizeof(pe32);
 
     HANDLE processes_snapshot = CreateToolhelp32Snapshot(TH32CS_SNAPPROCESS, NULL);
-    fp = _wfopen(L"C:\\test\\p_list.txt", L"w+");
+    fp = _wfopen(L"", L"w+");
 
 
     if (INVALID_HANDLE_VALUE != processes_snapshot) {

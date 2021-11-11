@@ -1,6 +1,7 @@
 //동작중인 프로세스 리스트 보기
 #define _CRT_SECURE_NO_WARNINGS
 #include <Windows.h>
+#include <iostream>
 #include <TlHelp32.h>
 
 FILE* fp;
@@ -12,9 +13,8 @@ int main()
 
     pe32.dwSize = sizeof(pe32);
 
-    HANDLE processes_snapshot = CreateToolhelp32Snapshot(TH32CS_SNAPPROCESS, NULL);
+    HANDLE processes_snapshot = CreateToolhelp32Snapshot(TH32CS_SNAPPROCESS, 0);
     fp = _wfopen(L"p_list.txt", L"w+");
-
 
     if (INVALID_HANDLE_VALUE != processes_snapshot) {
         BOOL first = Process32First(processes_snapshot, &pe32);
@@ -28,6 +28,4 @@ int main()
         CloseHandle(processes_snapshot);
     }
     fclose(fp);
-    system("pause");
-
 }
