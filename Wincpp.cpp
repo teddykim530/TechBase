@@ -8,9 +8,9 @@
 #include <io.h>
 #include <conio.h>
 #include <string>
-#pragma warning(disable:4996)
+// #pragma warning(disable:4996)
 
-#pragma comment(lib,"ws2_32")
+// #pragma comment(lib, "ws2_32.lib")
 
 using namespace std;
 
@@ -103,7 +103,7 @@ void getNetwork_info()
     }
     HOSTENT* ptr = gethostbyname(localhostname);//호스트 엔트리 얻어오기
 
-    printf("\Network list information \n");
+    printf("Network list information \n");
     printf("====================================\n");
 
     while (ptr && ptr->h_name)

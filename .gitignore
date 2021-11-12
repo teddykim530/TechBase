@@ -311,6 +311,8 @@ paket-files/
 
 .exe/
 
+.ipynb_checkpoints
+
 # CodeRush personal settings
 .cr/personal
 
