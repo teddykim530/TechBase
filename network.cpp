@@ -1,12 +1,14 @@
 //네트워크 주소 확인 하기
 
-#define _CRT_SECURE_NO_WARNINGS
+//#define _CRT_SECURE_NO_WARNINGS
 #include <WinSock2.h>
 #include <Windows.h>
 #include <stdio.h>
-#pragma warning(disable:4996)
+
+// #pragma warning(disable:4996)
+// #pragma comment(lib, "ws2_32.lib")
+
 FILE* fp;
-#pragma comment(lib,"ws2_32")
 
 void ViewLocalHostIPv4();
 int main()

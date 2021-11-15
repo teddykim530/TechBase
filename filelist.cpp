@@ -1,20 +1,14 @@
 #include <iostream>
-
 #include <io.h>
-
+#include <stdio.h>
 #include <string>
 
 using namespace std;
 
-
-
-int main(){
-
-
-
-	string path = "C:\\Users\\JYP\\Desktop\\p\\resource\\spam\\*.*";
-
-
+int main()
+{
+	
+string path = "C:\\Users\\teddy\\TechBase\\*.*";
 
 	struct _finddata_t fd;
 
@@ -22,22 +16,15 @@ int main(){
 
 	if ((handle = _findfirst(path.c_str(), &fd)) == -1L)
 
-		cout << "No file in directory!" << endl;
+        std::cout << "No file in directory!" << std::endl;
 
+	printf("\tFile list information \n");
+    printf("====================================\n");
 	do
-
 	{
-
-		cout << fd.name << endl;
+		cout << "File: " << fd.name << endl;
 
 	} while (_findnext(handle, &fd) == 0);
 
 	_findclose(handle);
-
-
-
 }
-
-
-
-출처: https://nauco.tistory.com/5 [UNDERSTANDING]

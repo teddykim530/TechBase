@@ -55,6 +55,7 @@
                 }
             }
         },
+        
         {
             "label": "execute",
             "command": "cmd",
@@ -84,5 +85,6 @@
             "group": "build",
             "detail": "컴파일러: C:\\mingw64\\bin\\cpp.exe"
         }
+        
     ]
 }
