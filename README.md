@@ -16,10 +16,13 @@ Replacement Programming Test
 scp /home/teddy/문서/TechBase/linuxs.c teddy@172.31.96.1:C:/Users/teddy/TechBase
 - ssh
 ssh teddy@172.31.96.1
-- network.cpp 컴파일
+- network.cpp 컴파일(Windows)
 gcc -o network.exe network.cpp -lws2_32
-- process2.cpp 컴파일
+- process2.cpp 컴파일(Windows)
 gcc -o process2.exe process2.cpp -lPSAPI
+- process3.c 컴파일(Unix)
+g++ -g -Wall -02 process3.exe -o process3.c -lprocps
+
 
 
 
