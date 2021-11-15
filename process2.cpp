@@ -5,19 +5,16 @@
 
 // To ensure correct resolution of symbols, add Psapi.lib to TARGETLIBS
 // and compile with -DPSAPI_VERSION=1
-
 void PrintProcessNameAndID( DWORD processID )
 {
     TCHAR szProcessName[MAX_PATH] = TEXT("<unknown>");
 
     // Get a handle to the process.
-
     HANDLE hProcess = OpenProcess( PROCESS_QUERY_INFORMATION |
                                    PROCESS_VM_READ,
                                    FALSE, processID );
 
     // Get the process name.
-
     if (NULL != hProcess )
     {
         HMODULE hMod;
@@ -32,11 +29,9 @@ void PrintProcessNameAndID( DWORD processID )
     }
 
     // Print the process name and identifier.
-
     _tprintf( TEXT("%s  (PID: %u)\n"), szProcessName, processID );
 
     // Release the handle to the process.
-
     CloseHandle( hProcess );
 }
 
@@ -51,11 +46,13 @@ int main( void )
         return 1;
     }
 
-
     // Calculate how many process identifiers were returned.
     cProcesses = cbNeeded / sizeof(DWORD);
 
     // Print the name and process identifier for each process.
+
+    printf("\tCurrent Process information \n");
+    printf("====================================\n");
     for ( i = 0; i < cProcesses; i++ )
     {
         if( aProcesses[i] != 0 )
@@ -63,6 +60,9 @@ int main( void )
             PrintProcessNameAndID( aProcesses[i] );
         }
     }
-
+    printf("====================================\n");
     return 0;
 }
+
+//Source
+//https://stackoverflow.com/questions/11564148/how-to-get-the-starting-base-address-of-a-process-in-c

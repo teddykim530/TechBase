@@ -10,7 +10,6 @@ void hardware_info()
 {  
    SYSTEM_INFO siSysInfo;
    GetSystemInfo(&siSysInfo); 
-   // Display the contents of the SYSTEM_INFO structure. 
 
    printf("\tHardware information \n");  
    printf("====================================\n");
@@ -51,14 +50,14 @@ void hardware_info()
    }
 }
 
+int main()
+{
+   hardware_info();
+   printf("====================================\n");
+}
 
 // *Source
 // https://docs.microsoft.com/ko-kr/windows/win32/sysinfo/getting-hardware-information
 // https://stackoverflow.com/questions/11917946/how-do-i-get-available-disk-space-from-windows-using-c
 // https://ospace.tistory.com/514
 
-int main()
-{
-   hardware_info();
-   printf("====================================\n");
-}

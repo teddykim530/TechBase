@@ -26,4 +26,5 @@ int main()
 	} while (_findnext(handle, &fd) == 0);
 
 	_findclose(handle);
+	printf("====================================\n");
 }
