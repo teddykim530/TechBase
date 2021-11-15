@@ -7,8 +7,7 @@ using namespace std;
 
 int main()
 {
-	
-string path = "C:\\Users\\teddy\\TechBase\\*.*";
+	string path = "C:\\Users\\teddy\\TechBase\\*.*";
 
 	struct _finddata_t fd;
 

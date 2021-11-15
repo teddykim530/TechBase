@@ -9,7 +9,6 @@
 // #pragma comment(lib, "ws2_32.lib")
 
 FILE* fp;
-
 void ViewLocalHostIPv4();
 int main()
 {
@@ -33,13 +32,19 @@ void ViewLocalHostIPv4()
     {
         return;
     }
+
     HOSTENT* ptr = gethostbyname(localhostname);//호스트 엔트리 얻어오기
+
+    printf("Network list information \n");
+    printf("====================================\n");
+    
     while (ptr && ptr->h_name)
     {
         if (ptr->h_addrtype == PF_INET)//IPv4 주소 타입일 때
         {
             for (int index = 0; ptr->h_addr_list[index]; index++)
             {
+                printf("IP: ");
                 memcpy(&addr, ptr->h_addr_list[index], ptr->h_length);//메모리 복사
                 printf("%s\n", inet_ntoa(addr));
                 fprintf(fp, "%s\n", inet_ntoa(addr));
