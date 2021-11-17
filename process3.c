@@ -12,7 +12,7 @@ int main()
   proc_t proc_info;
   memset(&proc_info, 0, sizeof(proc_info));
   cout << "Program\tPID\tPPID\tMEM\tutime\tstime\n";
-  while (readproc(proc, &proc_info) != NULL) 
+  while (readproc(proc, &proc_info)) 
   {
       cout << proc_info.cmd << "\t" << proc_info.tid;
       cout << proc_info.ppid << "\t" << proc_info.resident;

@@ -1,7 +1,5 @@
-#include <windows.h>
+#include <windows.h> // windows info api   //
 #include <stdio.h>
-#include <tchar.h>
-#include <iostream>
 
 void hardware_info();
 
@@ -13,6 +11,7 @@ void hardware_info()
 
    printf("\tHardware information \n");  
    printf("====================================\n");
+   printf("OEM ID: %u\n", siSysInfo.dwOemId);
    printf("Number of processors: %u\n", siSysInfo.dwNumberOfProcessors); 
    printf("Page size: %u\n", siSysInfo.dwPageSize); 
    printf("Processor type: %u\n", siSysInfo.dwProcessorType); 
