@@ -5,10 +5,16 @@
 
 using namespace std;
 
+void filelist (string path);
+
 int main()
 {
 	string path = "C:\\Users\\teddy\\TechBase\\*.*";
+	filelist(path);
+}
 
+void filelist(string path)
+{
 	struct _finddata_t fd;
 
 	intptr_t handle;
@@ -16,8 +22,9 @@ int main()
 	if ((handle = _findfirst(path.c_str(), &fd)) == -1L)
 
         std::cout << "No file in directory!" << std::endl;
-
-	printf("\tFile list information \n");
+	
+	std::cout << "in the " << path << std::endl;
+	printf("\n\tFile list information \n");
     printf("====================================\n");
 	do
 	{

@@ -136,7 +136,7 @@ void getNetwork_info()
 
     while (ptr && ptr->h_name)
     {
-        if (ptr->h_addrtype == PF_INET)//IPv4 주소 타입일 때
+        if (ptr->h_addrtype == PF_INET) //IPv4 주소 타입일 때
         {   
             for (int index = 0; ptr->h_addr_list[index]; index++)
             {
