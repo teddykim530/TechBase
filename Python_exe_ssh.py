@@ -10,7 +10,7 @@ try:
     ssh.connect("127.0.0.1", port="22", username="teddy", password="gusdn147")
     print("connected!!")
     
-    stdin, stdout, stderr = ssh.exec_command("cd 문서 ; gcc -o linuxs.exe linuxs.c ; ./linuxs.exe")
+    stdin, stdout, stderr = ssh.exec_command("ls")
     lines = stdout.readlines()
     resultData = ''.join(lines)
     
@@ -18,5 +18,5 @@ try:
                                                                             
     ssh.close()
     
-except Exception as err:
+except Exception as err:vg
         print(err)
